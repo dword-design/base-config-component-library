@@ -6,4 +6,5 @@ export default {
   ...nodeConfig,
   depcheckConfig,
   test: lint,
+  npmPublish: true,
 }
