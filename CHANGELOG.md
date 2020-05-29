@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/dword-design/base-config-component-library/compare/v1.0.1...v1.1.0) (2020-05-29)
+
+
+### Features
+
+* add job matrix ([3ee9ab3](https://github.com/dword-design/base-config-component-library/commit/3ee9ab38744834d695e38ba2007c6d7c25cd073a))
+
 ## [1.0.1](https://github.com/dword-design/base-config-component-library/compare/v1.0.0...v1.0.1) (2020-05-28)
 
 
