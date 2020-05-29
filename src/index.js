@@ -5,6 +5,7 @@ import lint from './lint'
 export default {
   ...nodeConfig,
   depcheckConfig,
-  test: lint,
   npmPublish: true,
+  useJobMatrix: true,
+  test: lint,
 }
