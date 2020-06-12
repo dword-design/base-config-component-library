@@ -7,5 +7,5 @@ export default {
   depcheckConfig,
   npmPublish: true,
   useJobMatrix: true,
-  test: lint,
+  lint,
 }
