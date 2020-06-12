@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/dword-design/base-config-component-library/compare/v1.1.0...v1.1.1) (2020-06-12)
+
+
+### Bug Fixes
+
+* rename to lint ([216fd62](https://github.com/dword-design/base-config-component-library/commit/216fd62e117221961ede56391505697d76a2d678))
+
 # [1.1.0](https://github.com/dword-design/base-config-component-library/compare/v1.0.1...v1.1.0) (2020-05-29)
 
 
