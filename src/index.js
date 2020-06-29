@@ -1,10 +1,16 @@
 import nodeConfig from '@dword-design/base-config-node'
-import depcheckConfig from '@dword-design/depcheck-config-vue'
+import depcheckParserSass from '@dword-design/depcheck-parser-sass'
+import depcheckParserVue from 'depcheck-parser-vue'
 import lint from './lint'
 
 export default {
   ...nodeConfig,
-  depcheckConfig,
+  depcheckConfig: {
+    parsers: {
+      '*.scss': depcheckParserSass,
+      '*.vue': depcheckParserVue,
+    },
+  },
   npmPublish: true,
   useJobMatrix: true,
   lint,

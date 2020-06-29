@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@dword-design/base-config-node": "^1.6.1",
-    "@dword-design/depcheck-config-vue": "^1.1.1",
+    "@dword-design/depcheck-parser-sass": "^1.1.0",
+    "depcheck-parser-vue": "^1.0.0",
     "execa": "^4.0.1"
   },
   "devDependencies": {
