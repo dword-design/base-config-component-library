@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/dword-design/base-config-component-library/compare/v1.1.1...v1.1.2) (2020-06-29)
+
+
+### Bug Fixes
+
+* upgrades ([614e74a](https://github.com/dword-design/base-config-component-library/commit/614e74a713eef6258cbec5ad0f34a91c65b46045))
+
 ## [1.1.1](https://github.com/dword-design/base-config-component-library/compare/v1.1.0...v1.1.1) (2020-06-12)
 
 
