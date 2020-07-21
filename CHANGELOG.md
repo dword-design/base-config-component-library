@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/dword-design/base-config-component-library/compare/v1.1.4...v1.2.0) (2020-07-21)
+
+
+### Bug Fixes
+
+* upgrades ([24d415a](https://github.com/dword-design/base-config-component-library/commit/24d415af354d2869cb1d166919cf77924e464d23))
+
+
+### Features
+
+* use rollup ([4826959](https://github.com/dword-design/base-config-component-library/commit/48269596c9a96b30e0ec8080989714fb4880454b))
+
 ## [1.1.4](https://github.com/dword-design/base-config-component-library/compare/v1.1.3...v1.1.4) (2020-07-20)
 
 
