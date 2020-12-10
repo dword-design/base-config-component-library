@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/dword-design/base-config-component-library/compare/v1.2.1...v1.2.2) (2020-12-10)
+
+
+### Bug Fixes
+
+* upgrades ([cc92b5a](https://github.com/dword-design/base-config-component-library/commit/cc92b5a3ea348e5d1eb936ff90c1a089f6558f06))
+* **deps:** update dependency execa to v5 ([9e6f261](https://github.com/dword-design/base-config-component-library/commit/9e6f2615860257bb66e84fdec8dcd795e550ba13))
+
 ## [1.2.1](https://github.com/dword-design/base-config-component-library/compare/v1.2.0...v1.2.1) (2020-07-25)
 
 
