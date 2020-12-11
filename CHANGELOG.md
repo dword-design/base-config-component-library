@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/dword-design/base-config-component-library/compare/v1.2.2...v1.2.3) (2020-12-11)
+
+
+### Bug Fixes
+
+* remove get-package-name ([721ef3b](https://github.com/dword-design/base-config-component-library/commit/721ef3b872491ded840fb3b60a4cb24391224925))
+
 ## [1.2.2](https://github.com/dword-design/base-config-component-library/compare/v1.2.1...v1.2.2) (2020-12-10)
 
 
