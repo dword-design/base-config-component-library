@@ -64,7 +64,7 @@ $ yarn add @dword-design/base-config-component-library
 <!-- LICENSE/ -->
 ## Contribute
 
-Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/base-config-component-library/issues) or [pull request](https://github.com/dword-design/base-config-component-library/pulls)! ⚙️
+Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/base-config-component-library/issues) or a [pull request](https://github.com/dword-design/base-config-component-library/pulls)! ⚙️
 
 ## Support
 
