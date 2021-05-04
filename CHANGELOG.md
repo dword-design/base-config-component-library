@@ -1,3 +1,10 @@
+## [1.2.15](https://github.com/dword-design/base-config-component-library/compare/v1.2.14...v1.2.15) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v10 ([#28](https://github.com/dword-design/base-config-component-library/issues/28)) ([7292dfd](https://github.com/dword-design/base-config-component-library/commit/7292dfdc52ff741dc49566b983d70018a907fa8f))
+
 ## [1.2.14](https://github.com/dword-design/base-config-component-library/compare/v1.2.13...v1.2.14) (2021-05-04)
 
 
