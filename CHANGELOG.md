@@ -1,3 +1,10 @@
+## [1.2.16](https://github.com/dword-design/base-config-component-library/compare/v1.2.15...v1.2.16) (2021-05-28)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#31](https://github.com/dword-design/base-config-component-library/issues/31)) ([77e2884](https://github.com/dword-design/base-config-component-library/commit/77e288403f6f20251fdd60b59766fe027b924c0d))
+
 ## [1.2.15](https://github.com/dword-design/base-config-component-library/compare/v1.2.14...v1.2.15) (2021-05-04)
 
 
