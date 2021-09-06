@@ -5,8 +5,8 @@ import P from 'path'
 
 import entry from './entry'
 
-export default {
-  ...componentConfig,
+export default config => ({
+  ...componentConfig(config),
   commands: {
     ...componentConfig.commands,
     prepublishOnly: async () => {
@@ -29,4 +29,4 @@ export default {
       }
     },
   },
-}
+})
