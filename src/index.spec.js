@@ -9,6 +9,8 @@ import { mkdir, outputFile, remove } from 'fs-extra'
 import { Builder, Nuxt } from 'nuxt'
 import outputFiles from 'output-files'
 
+import { vueCdnScript } from './variables'
+
 export default tester(
   {
     components: async () => {
@@ -95,7 +97,7 @@ export default tester(
         'index.html',
         endent`
         <body>
-          <script src="https://unpkg.com/vue"></script>
+          ${vueCdnScript}
           <script src="../tmp-component-library/dist/index.min.js"></script>
         
           <div id="app"></div>
