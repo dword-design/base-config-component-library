@@ -1,3 +1,10 @@
+## [1.2.24](https://github.com/dword-design/base-config-component-library/compare/v1.2.23...v1.2.24) (2022-02-09)
+
+
+### Bug Fixes
+
+* fix vue version ([a07853d](https://github.com/dword-design/base-config-component-library/commit/a07853dc35230cf3d0d582f021112a5281f58ae2))
+
 ## [1.2.23](https://github.com/dword-design/base-config-component-library/compare/v1.2.22...v1.2.23) (2022-01-12)
 
 
