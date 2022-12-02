@@ -35,4 +35,5 @@ export default config => ({
       }
     },
   },
+  supportedNodeVersions: [14, 16],
 })
