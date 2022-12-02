@@ -1,9 +1,13 @@
 import componentConfig from '@dword-design/base-config-component'
-import execa from 'execa'
+import packageName from 'depcheck-package-name'
+import { execa } from 'execa'
 import { outputFile, remove } from 'fs-extra'
+import { createRequire } from 'module'
 import P from 'path'
 
-import entry from './entry'
+import entry from './entry.js'
+
+const _require = createRequire(import.meta.url)
 
 export default config => ({
   ...componentConfig(config),
@@ -17,7 +21,9 @@ export default config => ({
           'rollup',
           [
             '--config',
-            require.resolve('@dword-design/rollup-config-component'),
+            _require.resolve(
+              packageName`@dword-design/rollup-config-component`
+            ),
           ],
           {
             env: { NODE_ENV: 'production' },
