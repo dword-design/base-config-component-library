@@ -26,7 +26,7 @@
     "@dword-design/rollup-config-component": "^2.0.0",
     "depcheck-package-name": "^2.0.6",
     "execa": "^6.1.0",
-    "fs-extra": "^10.0.0"
+    "fs-extra": "^11.0.0"
   },
   "devDependencies": {
     "@dword-design/base": "^9.0.5",
