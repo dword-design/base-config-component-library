@@ -4,10 +4,14 @@ import { endent } from '@dword-design/functions'
 import puppeteer from '@dword-design/puppeteer'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
+import { loadNuxt } from '@nuxt/kit'
+import { execaCommand } from 'execa'
 import fileUrl from 'file-url'
 import fs from 'fs-extra'
-import { Builder, Nuxt } from 'nuxt'
+import { build } from 'nuxt'
 import outputFiles from 'output-files'
+import { pEvent } from 'p-event'
+import kill from 'tree-kill-promise'
 
 import self from './index.js'
 import { vueCdnScript } from './variables.js'
@@ -37,9 +41,15 @@ export default tester(
         `,
       })
 
-      const nuxt = new Nuxt()
-      await new Builder(nuxt).build()
-      await nuxt.listen()
+      const nuxt = await loadNuxt({ config: { telemetry: false } })
+      await build(nuxt)
+
+      const childProcess = execaCommand('nuxt start', { all: true })
+      await pEvent(
+        childProcess.all,
+        'data',
+        data => data.toString() === 'Listening http://[::]:3000\n'
+      )
 
       const browser = await puppeteer.launch()
 
@@ -53,7 +63,7 @@ export default tester(
         )
       } finally {
         await browser.close()
-        await nuxt.close()
+        await kill(childProcess.pid)
       }
     },
     plugin: async () => {
@@ -67,16 +77,21 @@ export default tester(
           </template>
         `,
         'plugins/plugin.js': endent`
-          import Vue from 'vue'
           import TmpComponentLibrary from '../../tmp-component-library'
           
-          Vue.use(TmpComponentLibrary)
+          export default defineNuxtPlugin(nuxtApp => nuxtApp.vueApp.use(TmpComponentLibrary))
         `,
       })
 
-      const nuxt = new Nuxt({ plugins: ['~/plugins/plugin.js'] })
-      await new Builder(nuxt).build()
-      await nuxt.listen()
+      const nuxt = await loadNuxt({ config: { telemetry: false } })
+      await build(nuxt)
+
+      const childProcess = execaCommand('nuxt start', { all: true })
+      await pEvent(
+        childProcess.all,
+        'data',
+        data => data.toString() === 'Listening http://[::]:3000\n'
+      )
 
       const browser = await puppeteer.launch()
 
@@ -90,7 +105,7 @@ export default tester(
         )
       } finally {
         await browser.close()
-        await nuxt.close()
+        await kill(childProcess.pid)
       }
     },
     script: async () => {
@@ -104,7 +119,7 @@ export default tester(
           <div id="app"></div>
         
           <script>
-            new Vue({
+            const app = Vue.createApp({
               el: '#app',
               template: \`
                 <div class="tmp-component-library">
@@ -113,6 +128,8 @@ export default tester(
                 </div>
               \`
             })
+            app.use(TmpComponentLibrary)
+            app.mount('#app')
           </script>
         </body>
       `
