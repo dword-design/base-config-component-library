@@ -11,16 +11,16 @@ export default () => {
     const install = app => {
       if (install.installed) return;
       install.installed = true;
-      Object.entries(components).forEach(([componentName, component]) => {
-        app.component(componentName, component);
-      });
-    };
+      for (const [componentName, component] of Object.entries(components)) {
+        app.component(componentName, component)
+      }
+    }
 
     const library = { install }
 
     if (typeof window !== 'undefined') {
       window.${libraryName} = library
-      Object.entries(components).forEach(([componentName, component]) => {
+      for (const [componentName, component] of Object.entries(components)) {
         window[componentName] = component
       }
     }

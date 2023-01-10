@@ -20,6 +20,7 @@ export default tester(
   {
     components: async () => {
       await outputFiles({
+        'package.json': JSON.stringify({ type: 'module' }),
         'pages/index.vue': endent`
           <template>
             <div class="tmp-component-library">
@@ -68,6 +69,7 @@ export default tester(
     },
     plugin: async () => {
       await outputFiles({
+        'package.json': JSON.stringify({ type: 'module' }),
         'pages/index.vue': endent`
           <template>
             <div class="tmp-component-library">
@@ -157,21 +159,20 @@ export default tester(
         await fs.mkdir('tmp-component-library')
         await chdir('tmp-component-library', async () => {
           await outputFiles({
-            'package.json': JSON.stringify({ name: 'tmp-component-library' }),
+            'package.json': JSON.stringify({
+              name: 'tmp-component-library',
+              type: 'module',
+            }),
             src: {
               'component1.vue': endent`
-                <script>
-                export default {
-                  render: () => <div>Hello world</div>
-                }
-                </script>
+                <template>
+                  <div>Hello world</div>
+                </template>
               `,
               'component2.vue': endent`
-                <script>
-                export default {
-                  render: () => <div>Hello others</div>
-                }
-                </script>
+                <template>
+                  <div>Hello others</div>
+                </template>
               `,
               'index.js': endent`
                 export { default as Component1 } from './component1.vue'
