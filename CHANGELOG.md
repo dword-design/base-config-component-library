@@ -1,3 +1,10 @@
+## [1.2.27](https://github.com/dword-design/base-config-component-library/compare/v1.2.26...v1.2.27) (2023-03-15)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/chdir to v2.1.4 ([5e63d89](https://github.com/dword-design/base-config-component-library/commit/5e63d89329d3bc73471f7b694674fbd8846b3ae7))
+
 ## [1.2.26](https://github.com/dword-design/base-config-component-library/compare/v1.2.25...v1.2.26) (2022-12-02)
 
 
