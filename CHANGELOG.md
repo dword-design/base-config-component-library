@@ -1,3 +1,10 @@
+## [1.2.32](https://github.com/dword-design/base-config-component-library/compare/v1.2.31...v1.2.32) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency nuxt to v2.16.2 ([53264ef](https://github.com/dword-design/base-config-component-library/commit/53264efb7f2f3f1d01dc2489c2aee3b94c4bad85))
+
 ## [1.2.31](https://github.com/dword-design/base-config-component-library/compare/v1.2.30...v1.2.31) (2023-03-16)
 
 
