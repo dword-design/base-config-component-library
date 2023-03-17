@@ -1,3 +1,11 @@
+## [1.2.33](https://github.com/dword-design/base-config-component-library/compare/v1.2.32...v1.2.33) (2023-03-17)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.21 ([f843ca6](https://github.com/dword-design/base-config-component-library/commit/f843ca6379143b019b095c2c6483d4ede6c2bfe0))
+* update dependency nuxt to v2.16.3 ([25cc550](https://github.com/dword-design/base-config-component-library/commit/25cc5504d7ad43efb4b62c34173716aef16ce86a))
+
 ## [1.2.32](https://github.com/dword-design/base-config-component-library/compare/v1.2.31...v1.2.32) (2023-03-16)
 
 
