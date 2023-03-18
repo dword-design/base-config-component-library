@@ -1800,9 +1800,9 @@
     puppeteer "^19.4.1"
 
 "@dword-design/rollup-config-component@^2.0.0":
-  version "2.0.24"
-  resolved "https://registry.yarnpkg.com/@dword-design/rollup-config-component/-/rollup-config-component-2.0.24.tgz#b6e0429df72462a0d171bab2a3e40222f174c631"
-  integrity sha512-we9IgQGWgRW19prASLtrtpndogkssx0IPQoB9dkyLgFSygRH6YGZnfXS8oyYlECsOlu9HUIe4i5AaA0LU6r63w==
+  version "2.0.28"
+  resolved "https://registry.yarnpkg.com/@dword-design/rollup-config-component/-/rollup-config-component-2.0.28.tgz#993682f9e1ba2a8e8de006f60e94c39345f539d8"
+  integrity sha512-ovLJN5lN6mFR8fOSh7qIWohvK7DLonseV7JtjlYTmI8QM6Yq+gYK6grrzSRTM5bDtW0G1UU5GD6Yxrl2WIDRHg==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@rollup/plugin-babel" "^6.0.3"
