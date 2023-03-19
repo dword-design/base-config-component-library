@@ -1,3 +1,10 @@
+## [1.2.38](https://github.com/dword-design/base-config-component-library/compare/v1.2.37...v1.2.38) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.30 ([4580890](https://github.com/dword-design/base-config-component-library/commit/45808900426a3c057258f31583579c69929c00f4))
+
 ## [1.2.37](https://github.com/dword-design/base-config-component-library/compare/v1.2.36...v1.2.37) (2023-03-18)
 
 
