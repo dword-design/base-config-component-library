@@ -1,3 +1,10 @@
+## [1.2.44](https://github.com/dword-design/base-config-component-library/compare/v1.2.43...v1.2.44) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.17 ([78dbd9e](https://github.com/dword-design/base-config-component-library/commit/78dbd9e8a750ad207adcdecfdc497c63f5fb7d6a))
+
 ## [1.2.43](https://github.com/dword-design/base-config-component-library/compare/v1.2.42...v1.2.43) (2023-03-19)
 
 
