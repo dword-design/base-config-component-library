@@ -1,3 +1,10 @@
+## [1.2.47](https://github.com/dword-design/base-config-component-library/compare/v1.2.46...v1.2.47) (2023-03-20)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v11.1.1 ([0f2ccaa](https://github.com/dword-design/base-config-component-library/commit/0f2ccaa325f8fbf8c1dd05b0555cc78054fe2b6a))
+
 ## [1.2.46](https://github.com/dword-design/base-config-component-library/compare/v1.2.45...v1.2.46) (2023-03-19)
 
 
