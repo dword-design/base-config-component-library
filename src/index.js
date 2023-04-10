@@ -22,13 +22,13 @@ export default config => ({
           [
             '--config',
             _require.resolve(
-              packageName`@dword-design/rollup-config-component`
+              packageName`@dword-design/rollup-config-component`,
             ),
           ],
           {
             env: { NODE_ENV: 'production' },
             stdio: 'inherit',
-          }
+          },
         )
       } finally {
         await remove(P.join('src', 'entry.js'))

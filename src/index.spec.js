@@ -49,7 +49,7 @@ export default tester(
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
@@ -69,7 +69,7 @@ export default tester(
         'plugins/plugin.js': endent`
           import Vue from 'vue'
           import TmpComponentLibrary from '../../tmp-component-library'
-          
+
           Vue.use(TmpComponentLibrary)
         `,
       })
@@ -86,7 +86,7 @@ export default tester(
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
@@ -97,25 +97,25 @@ export default tester(
       await fs.outputFile(
         'index.html',
         endent`
-        <body>
-          ${vueCdnScript}
-          <script src="../tmp-component-library/dist/index.min.js"></script>
-        
-          <div id="app"></div>
-        
-          <script>
-            new Vue({
-              el: '#app',
-              template: \`
-                <div class="tmp-component-library">
-                  <component1 />
-                  <component2 />
-                </div>
-              \`
-            })
-          </script>
-        </body>
-      `
+          <body>
+            ${vueCdnScript}
+            <script src="../tmp-component-library/dist/index.min.js"></script>
+
+            <div id="app"></div>
+
+            <script>
+              new Vue({
+                el: '#app',
+                template: \`
+                  <div class="tmp-component-library">
+                    <component1 />
+                    <component2 />
+                  </div>
+                \`
+              })
+            </script>
+          </body>
+        `,
       )
 
       const browser = await puppeteer.launch()
@@ -126,7 +126,7 @@ export default tester(
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
@@ -169,5 +169,5 @@ export default tester(
       },
     },
     testerPluginTmpDir(),
-  ]
+  ],
 )
