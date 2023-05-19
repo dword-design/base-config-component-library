@@ -4,13 +4,11 @@ import { endent } from '@dword-design/functions'
 import puppeteer from '@dword-design/puppeteer'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
-import { loadNuxt } from '@nuxt/kit'
 import { execaCommand } from 'execa'
 import fileUrl from 'file-url'
 import fs from 'fs-extra'
-import { build } from 'nuxt'
+import nuxtDevReady from 'nuxt-dev-ready'
 import outputFiles from 'output-files'
-import { pEvent } from 'p-event'
 import kill from 'tree-kill-promise'
 
 import self from './index.js'
@@ -42,29 +40,22 @@ export default tester(
         `,
       })
 
-      const nuxt = await loadNuxt({ config: { telemetry: false } })
-      await build(nuxt)
-
-      const childProcess = execaCommand('nuxt start', { all: true })
-      await pEvent(
-        childProcess.all,
-        'data',
-        data => data.toString() === 'Listening http://[::]:3000\n'
-      )
-
       const browser = await puppeteer.launch()
 
       const page = await browser.newPage()
+
+      const nuxt = execaCommand('nuxt dev')
       try {
+        await nuxtDevReady()
         await page.goto('http://localhost:3000')
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
-        await kill(childProcess.pid)
+        await kill(nuxt.pid)
       }
     },
     plugin: async () => {
@@ -80,61 +71,54 @@ export default tester(
         `,
         'plugins/plugin.js': endent`
           import TmpComponentLibrary from '../../tmp-component-library'
-          
+
           export default defineNuxtPlugin(nuxtApp => nuxtApp.vueApp.use(TmpComponentLibrary))
         `,
       })
 
-      const nuxt = await loadNuxt({ config: { telemetry: false } })
-      await build(nuxt)
-
-      const childProcess = execaCommand('nuxt start', { all: true })
-      await pEvent(
-        childProcess.all,
-        'data',
-        data => data.toString() === 'Listening http://[::]:3000\n'
-      )
+      const nuxt = execaCommand('nuxt dev')
 
       const browser = await puppeteer.launch()
 
       const page = await browser.newPage()
       try {
+        await nuxtDevReady()
         await page.goto('http://localhost:3000')
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
-        await kill(childProcess.pid)
+        await kill(nuxt.pid)
       }
     },
     script: async () => {
       await fs.outputFile(
         'index.html',
         endent`
-        <body>
-          ${vueCdnScript}
-          <script src="../tmp-component-library/dist/index.min.js"></script>
-        
-          <div id="app"></div>
-        
-          <script>
-            const app = Vue.createApp({
-              el: '#app',
-              template: \`
-                <div class="tmp-component-library">
-                  <component1 />
-                  <component2 />
-                </div>
-              \`
-            })
-            app.use(TmpComponentLibrary)
-            app.mount('#app')
-          </script>
-        </body>
-      `
+          <body>
+            ${vueCdnScript}
+            <script src="../tmp-component-library/dist/index.min.js"></script>
+
+            <div id="app"></div>
+
+            <script>
+              const app = Vue.createApp({
+                el: '#app',
+                template: \`
+                  <div class="tmp-component-library">
+                    <component1 />
+                    <component2 />
+                  </div>
+                \`
+              })
+              app.use(TmpComponentLibrary)
+              app.mount('#app')
+            </script>
+          </body>
+        `,
       )
 
       const browser = await puppeteer.launch()
@@ -145,7 +129,7 @@ export default tester(
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
@@ -181,11 +165,13 @@ export default tester(
               `,
             },
           })
-          await new Base(self).prepare()
-          await self().commands.prepublishOnly()
+
+          const base = await new Base(self)
+          await base.prepare()
+          await base.run('prepublishOnly')
         })
       },
     },
     testerPluginTmpDir(),
-  ]
+  ],
 )
