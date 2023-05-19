@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/dword-design/base-config-component-library/compare/v1.2.62...v2.0.0) (2023-05-19)
+
+
+### Bug Fixes
+
+* vue 3 ([#99](https://github.com/dword-design/base-config-component-library/issues/99)) ([4dc43ab](https://github.com/dword-design/base-config-component-library/commit/4dc43abb807a11a76d1090f97df52cac26d0bbf1))
+
+
+### BREAKING CHANGES
+
+* drop node 14 support, move to vue 3
+
 ## [1.2.62](https://github.com/dword-design/base-config-component-library/compare/v1.2.61...v1.2.62) (2023-05-13)
 
 
