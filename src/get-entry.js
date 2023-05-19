@@ -6,7 +6,7 @@ export default () => {
   const libraryName = getLibraryName()
 
   return endent`
-    import * as components from '.'
+    import * as components from './index.js'
 
     const install = app => {
       if (install.installed) return;

@@ -1,3 +1,258 @@
+## [1.2.62](https://github.com/dword-design/base-config-component-library/compare/v1.2.61...v1.2.62) (2023-05-13)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester to v2.0.19 ([e7599b5](https://github.com/dword-design/base-config-component-library/commit/e7599b5e5b3dbe9d313dbca8bec01cf244e8d3bc))
+
+## [1.2.61](https://github.com/dword-design/base-config-component-library/compare/v1.2.60...v1.2.61) (2023-05-13)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/puppeteer to v6.0.10 ([59c1169](https://github.com/dword-design/base-config-component-library/commit/59c1169e92c471454366138c0a0a6ba56ce90b9d))
+
+## [1.2.60](https://github.com/dword-design/base-config-component-library/compare/v1.2.59...v1.2.60) (2023-05-13)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.28 ([876364a](https://github.com/dword-design/base-config-component-library/commit/876364aef900895668b23dfe544ba109f174e851))
+
+## [1.2.59](https://github.com/dword-design/base-config-component-library/compare/v1.2.58...v1.2.59) (2023-04-11)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.26 ([02eb89f](https://github.com/dword-design/base-config-component-library/commit/02eb89f2502468c7101551d388077afed51b8046))
+
+## [1.2.58](https://github.com/dword-design/base-config-component-library/compare/v1.2.57...v1.2.58) (2023-04-11)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.25 ([f68cb4c](https://github.com/dword-design/base-config-component-library/commit/f68cb4c2645750e89182ad9c72cd1f612d579724))
+
+## [1.2.57](https://github.com/dword-design/base-config-component-library/compare/v1.2.56...v1.2.57) (2023-04-11)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester to v2.0.18 ([68e3fb4](https://github.com/dword-design/base-config-component-library/commit/68e3fb429ae5541d54662581bb56d8cec3399ac4))
+
+## [1.2.56](https://github.com/dword-design/base-config-component-library/compare/v1.2.55...v1.2.56) (2023-04-10)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.24 ([c20a73b](https://github.com/dword-design/base-config-component-library/commit/c20a73bfa553934a78b42845afd22b7f5468688d))
+
+## [1.2.55](https://github.com/dword-design/base-config-component-library/compare/v1.2.54...v1.2.55) (2023-04-10)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.23 ([4201bad](https://github.com/dword-design/base-config-component-library/commit/4201badf629077d9842d88c61c0fe0672585a64a))
+
+## [1.2.54](https://github.com/dword-design/base-config-component-library/compare/v1.2.53...v1.2.54) (2023-04-10)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester to v2.0.17 ([0ee2ff4](https://github.com/dword-design/base-config-component-library/commit/0ee2ff472b519a245a2c6a0e951c632d4b6f57c0))
+
+## [1.2.53](https://github.com/dword-design/base-config-component-library/compare/v1.2.52...v1.2.53) (2023-04-10)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.21 ([69be1c4](https://github.com/dword-design/base-config-component-library/commit/69be1c4cc6d156e7beb183d56e7ec22cc9a16705))
+* update dependency output-files to v2.0.21 ([739b2a2](https://github.com/dword-design/base-config-component-library/commit/739b2a2f9225be0ce157f8273c4d025dd1cda2bd))
+
+## [1.2.52](https://github.com/dword-design/base-config-component-library/compare/v1.2.51...v1.2.52) (2023-04-09)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4.1.7 ([8fc265a](https://github.com/dword-design/base-config-component-library/commit/8fc265a748ffa5989acaae85f056ddd0645d3b15))
+
+## [1.2.51](https://github.com/dword-design/base-config-component-library/compare/v1.2.50...v1.2.51) (2023-04-09)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester to v2.0.14 ([926e9ee](https://github.com/dword-design/base-config-component-library/commit/926e9ee52690a2e07258fa4a5082c01794acf420))
+
+## [1.2.50](https://github.com/dword-design/base-config-component-library/compare/v1.2.49...v1.2.50) (2023-04-07)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/puppeteer to v6.0.5 ([5c11c9e](https://github.com/dword-design/base-config-component-library/commit/5c11c9e4ff4f27b0ded93ebdf1beb1e66c836ee9))
+
+## [1.2.49](https://github.com/dword-design/base-config-component-library/compare/v1.2.48...v1.2.49) (2023-03-25)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/puppeteer to v6.0.4 ([6a66372](https://github.com/dword-design/base-config-component-library/commit/6a66372e2d2504d3cefbfb3d3b450f10be2007e2))
+
+## [1.2.48](https://github.com/dword-design/base-config-component-library/compare/v1.2.47...v1.2.48) (2023-03-21)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.19 ([9fd5bc1](https://github.com/dword-design/base-config-component-library/commit/9fd5bc198502df546363ad0af319ec1cbf46d9c2))
+
+## [1.2.47](https://github.com/dword-design/base-config-component-library/compare/v1.2.46...v1.2.47) (2023-03-20)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v11.1.1 ([0f2ccaa](https://github.com/dword-design/base-config-component-library/commit/0f2ccaa325f8fbf8c1dd05b0555cc78054fe2b6a))
+
+## [1.2.46](https://github.com/dword-design/base-config-component-library/compare/v1.2.45...v1.2.46) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.18 ([acbf709](https://github.com/dword-design/base-config-component-library/commit/acbf709a3657293fa8d8883f96d522e296c757db))
+
+## [1.2.45](https://github.com/dword-design/base-config-component-library/compare/v1.2.44...v1.2.45) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.18 ([88a218b](https://github.com/dword-design/base-config-component-library/commit/88a218b91ea7f03b00625ec26941ac6228ed46e8))
+
+## [1.2.44](https://github.com/dword-design/base-config-component-library/compare/v1.2.43...v1.2.44) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.17 ([78dbd9e](https://github.com/dword-design/base-config-component-library/commit/78dbd9e8a750ad207adcdecfdc497c63f5fb7d6a))
+
+## [1.2.43](https://github.com/dword-design/base-config-component-library/compare/v1.2.42...v1.2.43) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.17 ([df8aba8](https://github.com/dword-design/base-config-component-library/commit/df8aba858317a2ffc0c104f7bc97c7f527693264))
+
+## [1.2.42](https://github.com/dword-design/base-config-component-library/compare/v1.2.41...v1.2.42) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.16 ([bc8eed3](https://github.com/dword-design/base-config-component-library/commit/bc8eed31f2a86db51f403a4f62b9a26ec79f495c))
+
+## [1.2.41](https://github.com/dword-design/base-config-component-library/compare/v1.2.40...v1.2.41) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.31 ([e5543f6](https://github.com/dword-design/base-config-component-library/commit/e5543f6e443402a1e6325a3e053dbf5c0242b9fd))
+
+## [1.2.40](https://github.com/dword-design/base-config-component-library/compare/v1.2.39...v1.2.40) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.16 ([f342850](https://github.com/dword-design/base-config-component-library/commit/f342850a5e23b5027af0b827e8e733c98a095f50))
+
+## [1.2.39](https://github.com/dword-design/base-config-component-library/compare/v1.2.38...v1.2.39) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.15 ([32cfeb0](https://github.com/dword-design/base-config-component-library/commit/32cfeb02401fdeb5a702b0205a974a0a2b85d5c4))
+
+## [1.2.38](https://github.com/dword-design/base-config-component-library/compare/v1.2.37...v1.2.38) (2023-03-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.30 ([4580890](https://github.com/dword-design/base-config-component-library/commit/45808900426a3c057258f31583579c69929c00f4))
+
+## [1.2.37](https://github.com/dword-design/base-config-component-library/compare/v1.2.36...v1.2.37) (2023-03-18)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.28 ([d1a3d2c](https://github.com/dword-design/base-config-component-library/commit/d1a3d2ce6af439ce0887f5b443edfb4aca225571))
+
+## [1.2.36](https://github.com/dword-design/base-config-component-library/compare/v1.2.35...v1.2.36) (2023-03-18)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.14 ([e66942f](https://github.com/dword-design/base-config-component-library/commit/e66942f6f25e19ee779ebdd67b7e984a3020ab15))
+
+## [1.2.35](https://github.com/dword-design/base-config-component-library/compare/v1.2.34...v1.2.35) (2023-03-18)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.14 ([801e8ea](https://github.com/dword-design/base-config-component-library/commit/801e8ea5657ecbef4392ae973d6dcb8d95db4bde))
+
+## [1.2.34](https://github.com/dword-design/base-config-component-library/compare/v1.2.33...v1.2.34) (2023-03-17)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.24 ([75d0ab0](https://github.com/dword-design/base-config-component-library/commit/75d0ab099d4d4c6acb6edb2dcdea04b311bc5eec))
+
+## [1.2.33](https://github.com/dword-design/base-config-component-library/compare/v1.2.32...v1.2.33) (2023-03-17)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.21 ([f843ca6](https://github.com/dword-design/base-config-component-library/commit/f843ca6379143b019b095c2c6483d4ede6c2bfe0))
+* update dependency nuxt to v2.16.3 ([25cc550](https://github.com/dword-design/base-config-component-library/commit/25cc5504d7ad43efb4b62c34173716aef16ce86a))
+
+## [1.2.32](https://github.com/dword-design/base-config-component-library/compare/v1.2.31...v1.2.32) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency nuxt to v2.16.2 ([53264ef](https://github.com/dword-design/base-config-component-library/commit/53264efb7f2f3f1d01dc2489c2aee3b94c4bad85))
+
+## [1.2.31](https://github.com/dword-design/base-config-component-library/compare/v1.2.30...v1.2.31) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-tmp-dir to v2.1.13 ([000de3d](https://github.com/dword-design/base-config-component-library/commit/000de3dc41b334060efad1884f3ad46d5540a82e))
+
+## [1.2.30](https://github.com/dword-design/base-config-component-library/compare/v1.2.29...v1.2.30) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.13 ([76f0a16](https://github.com/dword-design/base-config-component-library/commit/76f0a16d426cf7451cf607666bcec32a62f162fa))
+
+## [1.2.29](https://github.com/dword-design/base-config-component-library/compare/v1.2.28...v1.2.29) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/rollup-config-component to v2.0.19 ([61a7085](https://github.com/dword-design/base-config-component-library/commit/61a7085519e5ab80eb536e66ece428fc93799850))
+* update dependency @dword-design/tester to v2.0.12 ([60379a7](https://github.com/dword-design/base-config-component-library/commit/60379a74c834233557887a79a63362d1684b6112))
+
+## [1.2.28](https://github.com/dword-design/base-config-component-library/compare/v1.2.27...v1.2.28) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/puppeteer to v6.0.3 ([cf986c5](https://github.com/dword-design/base-config-component-library/commit/cf986c5c270105a43fa22d8bf0525eeb74137bbf))
+
+## [1.2.27](https://github.com/dword-design/base-config-component-library/compare/v1.2.26...v1.2.27) (2023-03-15)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/chdir to v2.1.4 ([5e63d89](https://github.com/dword-design/base-config-component-library/commit/5e63d89329d3bc73471f7b694674fbd8846b3ae7))
+
 ## [1.2.26](https://github.com/dword-design/base-config-component-library/compare/v1.2.25...v1.2.26) (2022-12-02)
 
 
