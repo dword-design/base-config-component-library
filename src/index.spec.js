@@ -4,10 +4,12 @@ import { endent } from '@dword-design/functions'
 import puppeteer from '@dword-design/puppeteer'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
+import { execaCommand } from 'execa'
 import fileUrl from 'file-url'
 import fs from 'fs-extra'
-import { Builder, Nuxt } from 'nuxt'
+import nuxtDevReady from 'nuxt-dev-ready'
 import outputFiles from 'output-files'
+import kill from 'tree-kill-promise'
 
 import self from './index.js'
 import { vueCdnScript } from './variables.js'
@@ -16,6 +18,7 @@ export default tester(
   {
     components: async () => {
       await outputFiles({
+        'package.json': JSON.stringify({ type: 'module' }),
         'pages/index.vue': endent`
           <template>
             <div class="tmp-component-library">
@@ -37,27 +40,27 @@ export default tester(
         `,
       })
 
-      const nuxt = new Nuxt()
-      await new Builder(nuxt).build()
-      await nuxt.listen()
-
       const browser = await puppeteer.launch()
 
       const page = await browser.newPage()
+
+      const nuxt = execaCommand('nuxt dev')
       try {
+        await nuxtDevReady()
         await page.goto('http://localhost:3000')
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
-        await nuxt.close()
+        await kill(nuxt.pid)
       }
     },
     plugin: async () => {
       await outputFiles({
+        'package.json': JSON.stringify({ type: 'module' }),
         'pages/index.vue': endent`
           <template>
             <div class="tmp-component-library">
@@ -67,55 +70,55 @@ export default tester(
           </template>
         `,
         'plugins/plugin.js': endent`
-          import Vue from 'vue'
           import TmpComponentLibrary from '../../tmp-component-library'
-          
-          Vue.use(TmpComponentLibrary)
+
+          export default defineNuxtPlugin(nuxtApp => nuxtApp.vueApp.use(TmpComponentLibrary))
         `,
       })
 
-      const nuxt = new Nuxt({ plugins: ['~/plugins/plugin.js'] })
-      await new Builder(nuxt).build()
-      await nuxt.listen()
+      const nuxt = execaCommand('nuxt dev')
 
       const browser = await puppeteer.launch()
 
       const page = await browser.newPage()
       try {
+        await nuxtDevReady()
         await page.goto('http://localhost:3000')
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
-        await nuxt.close()
+        await kill(nuxt.pid)
       }
     },
     script: async () => {
       await fs.outputFile(
         'index.html',
         endent`
-        <body>
-          ${vueCdnScript}
-          <script src="../tmp-component-library/dist/index.min.js"></script>
-        
-          <div id="app"></div>
-        
-          <script>
-            new Vue({
-              el: '#app',
-              template: \`
-                <div class="tmp-component-library">
-                  <component1 />
-                  <component2 />
-                </div>
-              \`
-            })
-          </script>
-        </body>
-      `
+          <body>
+            ${vueCdnScript}
+            <script src="../tmp-component-library/dist/index.min.js"></script>
+
+            <div id="app"></div>
+
+            <script>
+              const app = Vue.createApp({
+                el: '#app',
+                template: \`
+                  <div class="tmp-component-library">
+                    <component1 />
+                    <component2 />
+                  </div>
+                \`
+              })
+              app.use(TmpComponentLibrary)
+              app.mount('#app')
+            </script>
+          </body>
+        `,
       )
 
       const browser = await puppeteer.launch()
@@ -126,7 +129,7 @@ export default tester(
 
         const component = await page.waitForSelector('.tmp-component-library')
         expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others'
+          'Hello world\nHello others',
         )
       } finally {
         await browser.close()
@@ -140,21 +143,20 @@ export default tester(
         await fs.mkdir('tmp-component-library')
         await chdir('tmp-component-library', async () => {
           await outputFiles({
-            'package.json': JSON.stringify({ name: 'tmp-component-library' }),
+            'package.json': JSON.stringify({
+              name: 'tmp-component-library',
+              type: 'module',
+            }),
             src: {
               'component1.vue': endent`
-                <script>
-                export default {
-                  render: () => <div>Hello world</div>
-                }
-                </script>
+                <template>
+                  <div>Hello world</div>
+                </template>
               `,
               'component2.vue': endent`
-                <script>
-                export default {
-                  render: () => <div>Hello others</div>
-                }
-                </script>
+                <template>
+                  <div>Hello others</div>
+                </template>
               `,
               'index.js': endent`
                 export { default as Component1 } from './component1.vue'
@@ -163,11 +165,13 @@ export default tester(
               `,
             },
           })
-          await new Base(self).prepare()
-          await self().commands.prepublishOnly()
+
+          const base = await new Base(self)
+          await base.prepare()
+          await base.run('prepublishOnly')
         })
       },
     },
     testerPluginTmpDir(),
-  ]
+  ],
 )
