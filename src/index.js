@@ -23,5 +23,4 @@ export default config => ({
       }
     },
   },
-  nodeVersion: 18,
 })
