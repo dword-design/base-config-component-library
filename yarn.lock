@@ -13404,10 +13404,10 @@ traverse@~0.6.6:
   resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.7.tgz#46961cd2d57dd8706c36664acde06a248f1173fe"
   integrity sha512-/y956gpUo9ZNCb99YjxG7OaslxZWHfCHAUUfshwqOXmxUIvqLjVO581BT+gM59+QV9tFe6/CGG53tsA1Y7RSdg==
 
-tree-kill-promise@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-2.0.8.tgz#b56d474ce6ae2c8859f63fdfd0dc32205b4de729"
-  integrity sha512-JO45rDTW4O15l5a5+9NzvhpoNtA9Zcfk6id4wYWFzez26MWhwdCV0sFrwKlLHU3OZ4wXc8SE1g8YBU5hrxMBSA==
+tree-kill-promise@^3.0.0:
+  version "3.0.14"
+  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.14.tgz#10ed29534b75e26f16258cd46dd65bc1c05c2844"
+  integrity sha512-HMWDVJq3oby7uxA2AKVThX5fKkF7GPT3FhjNb75tG/6P4tQBtIhElaSucFHFMlBV5f3e+KPqIlHsJVZjueKX/A==
   dependencies:
     tree-kill "^1.2.2"
 

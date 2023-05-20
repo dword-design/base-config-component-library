@@ -42,7 +42,7 @@
     "nuxt": "^3.0.0",
     "nuxt-dev-ready": "^2.0.1",
     "output-files": "^2.0.5",
-    "tree-kill-promise": "^2.0.8"
+    "tree-kill-promise": "^3.0.0"
   },
   "engines": {
     "node": ">=16"
