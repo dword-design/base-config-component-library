@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/dword-design/base-config-component-library/compare/v2.0.3...v2.0.4) (2023-05-20)
+
+
+### Bug Fixes
+
+* foo ([d8dbbe2](https://github.com/dword-design/base-config-component-library/commit/d8dbbe2d6b6599787b368566fe2c5fed2a93809d))
+
 ## [2.0.3](https://github.com/dword-design/base-config-component-library/compare/v2.0.2...v2.0.3) (2023-05-20)
 
 
