@@ -5,21 +5,8 @@ export default {
   build: {
     lib: {
       entry: P.join('src', 'entry.js'),
-      fileName: format => {
-        const postfix = (() => {
-          switch (format) {
-            case 'umd':
-              return 'ssr'
-            case 'iife':
-              return 'min'
-            default:
-              return 'esm'
-          }
-        })()
-
-        return `index${postfix ? `.${postfix}` : ''}.js`
-      },
-      formats: ['esm', 'umd', 'iife'],
+      fileName: format => `index.${format === 'iife' ? 'min' : 'esm'}.js`,
+      formats: ['es', 'iife'],
       name: 'Lib',
     },
     rollupOptions: {

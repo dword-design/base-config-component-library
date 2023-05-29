@@ -17,9 +17,9 @@ import { vueCdnScript } from './variables.js'
 export default tester(
   {
     components: async () => {
-      await outputFiles({
-        'package.json': JSON.stringify({ type: 'module' }),
-        'pages/index.vue': endent`
+      await fs.outputFile(
+        'pages/index.vue',
+        endent`
           <template>
             <div class="tmp-component-library">
               <component1 />
@@ -38,7 +38,7 @@ export default tester(
           }
           </script>
         `,
-      })
+      )
 
       const browser = await puppeteer.launch()
 
@@ -60,7 +60,6 @@ export default tester(
     },
     plugin: async () => {
       await outputFiles({
-        'package.json': JSON.stringify({ type: 'module' }),
         'pages/index.vue': endent`
           <template>
             <div class="tmp-component-library">
@@ -143,10 +142,7 @@ export default tester(
         await fs.mkdir('tmp-component-library')
         await chdir('tmp-component-library', async () => {
           await outputFiles({
-            'package.json': JSON.stringify({
-              name: 'tmp-component-library',
-              type: 'module',
-            }),
+            'package.json': JSON.stringify({ name: 'tmp-component-library' }),
             src: {
               'component1.vue': endent`
                 <template>
