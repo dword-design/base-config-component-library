@@ -8,15 +8,13 @@ export default () => {
   return endent`
     import * as components from './index.js'
 
-    const install = app => {
-      if (install.installed) return;
-      install.installed = true;
-      for (const [componentName, component] of Object.entries(components)) {
-        app.component(componentName, component)
-      }
+    const library = {
+      install: app => {
+        for (const [componentName, component] of Object.entries(components)) {
+          app.component(componentName, component)
+        }
+      },
     }
-
-    const library = { install }
 
     if (typeof window !== 'undefined') {
       window.${libraryName} = library
