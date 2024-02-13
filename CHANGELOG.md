@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/dword-design/base-config-component-library/compare/v2.0.6...v3.0.0) (2024-02-13)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#154](https://github.com/dword-design/base-config-component-library/issues/154)) ([6cfe901](https://github.com/dword-design/base-config-component-library/commit/6cfe901ad8cfa14fecdbc369a69d30622381e222))
+
+
+### BREAKING CHANGES
+
+* node.js >= 18
+
 ## [2.0.6](https://github.com/dword-design/base-config-component-library/compare/v2.0.5...v2.0.6) (2023-06-15)
 
 
