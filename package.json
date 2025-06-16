@@ -22,7 +22,7 @@
     "test": "base test"
   },
   "dependencies": {
-    "@dword-design/base-config-component": "^4.0.0",
+    "@dword-design/base-config-component": "^5.0.0",
     "@dword-design/functions": "^5.0.27",
     "@vitejs/plugin-vue": "^5.0.4",
     "fs-extra": "^11.0.0",
