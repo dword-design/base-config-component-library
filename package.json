@@ -24,7 +24,7 @@
   "dependencies": {
     "@dword-design/base-config-component": "^4.0.0",
     "@dword-design/functions": "^5.0.27",
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue": "^6.0.0",
     "fs-extra": "^11.0.0",
     "load-pkg": "^4.0.0",
     "parse-packagejson-name": "^1.0.1",
