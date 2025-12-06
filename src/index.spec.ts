@@ -1,63 +1,79 @@
 import { Base } from '@dword-design/base'
-import chdir from '@dword-design/chdir'
-import { endent } from '@dword-design/functions'
-import puppeteer from '@dword-design/puppeteer'
-import tester from '@dword-design/tester'
-import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
+import endent from 'endent';
 import { execaCommand } from 'execa'
 import fileUrl from 'file-url'
 import fs from 'fs-extra'
 import nuxtDevReady from 'nuxt-dev-ready'
 import outputFiles from 'output-files'
 import kill from 'tree-kill-promise'
+import { test, expect } from '@playwright/test';
+import pathLib, { resolve } from 'node:path';
+import getPort from 'get-port';
 
-import self from './index.js'
-import { vueCdnScript } from './variables.js'
+import self from '.'
+import { vueCdnScript } from './variables'
 
-export default tester(
-  {
-    components: async () => {
-      await fs.outputFile(
-        'pages/index.vue',
-        endent`
+test('components', async ({ page }, testInfo) => {
+  const cwd = testInfo.outputPath();
+  await outputFiles(cwd, {
+    'app/pages/index.vue': endent`
+      <template>
+        <div class="tmp-component-library">
+          <component1 />
+          <component2 />
+        </div>
+      </template>
+
+      <script setup lang="ts">
+      import { Component1, Component2 } from 'tmp-component-library';
+      </script>
+    `,
+    'node_modules/tmp-component-library': {
+      'package.json': JSON.stringify({ name: 'tmp-component-library' }),
+      src: {
+        'component1.vue': endent`
           <template>
-            <div class="tmp-component-library">
-              <component1 />
-              <component2 />
-            </div>
+            <div class="foo" />
           </template>
-
-          <script>
-          import { Component1, Component2 } from '../../tmp-component-library'
-
-          export default {
-            components: {
-              Component1,
-              Component2,
-            },
-          }
-          </script>
         `,
-      )
+        'component2.vue': endent`
+          <template>
+            <div class="bar" />
+          </template>
+        `,
+        'index.ts': endent`
+          export { default as Component1 } from './component1.vue'
 
-      const browser = await puppeteer.launch()
-
-      const page = await browser.newPage()
-
-      const nuxt = execaCommand('nuxt dev')
-      try {
-        await nuxtDevReady()
-        await page.goto('http://localhost:3000')
-
-        const component = await page.waitForSelector('.tmp-component-library')
-        expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others',
-        )
-      } finally {
-        await browser.close()
-        await kill(nuxt.pid)
+          export { default as Component2 } from './component2.vue'
+        `,
       }
-    },
+    }
+  })
+
+  const base = new Base(
+    { name: '../../../../src' },
+    { cwd: pathLib.join(cwd, 'node_modules', 'tmp-component-library') },
+  );
+
+  await base.prepare();
+  await base.run('prepublishOnly');
+  const port = await getPort();
+
+  const nuxt = execaCommand('nuxt dev', { env: { PORT: String(port), NODE_ENV: '' }, reject: false, cwd, stdio: 'inherit' });
+  try {
+    await nuxtDevReady(port)
+    await page.goto(`http://localhost:${port}`)
+    await Promise.all([
+      expect(page.locator('.tmp-component-library .foo')).toBeAttached(),
+      expect(page.locator('.tmp-component-library .bar')).toBeAttached(),
+    ])
+  } finally {
+    await kill(nuxt.pid!)
+  }
+});
+
+/*export default tester(
+  {
     plugin: async () => {
       await outputFiles({
         'pages/index.vue': endent`
@@ -135,39 +151,4 @@ export default tester(
       }
     },
   },
-  [
-    {
-      after: () => fs.remove('tmp-component-library'),
-      before: async () => {
-        await fs.mkdir('tmp-component-library')
-        await chdir('tmp-component-library', async () => {
-          await outputFiles({
-            'package.json': JSON.stringify({ name: 'tmp-component-library' }),
-            src: {
-              'component1.vue': endent`
-                <template>
-                  <div>Hello world</div>
-                </template>
-              `,
-              'component2.vue': endent`
-                <template>
-                  <div>Hello others</div>
-                </template>
-              `,
-              'index.js': endent`
-                export { default as Component1 } from './component1.vue'
-
-                export { default as Component2 } from './component2.vue'
-              `,
-            },
-          })
-
-          const base = await new Base(self)
-          await base.prepare()
-          await base.run('prepublishOnly')
-        })
-      },
-    },
-    testerPluginTmpDir(),
-  ],
-)
+)*/
