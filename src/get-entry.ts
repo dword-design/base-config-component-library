@@ -1,10 +1,9 @@
 import endent from 'endent';
 
-import getLibraryName from './get-library-name'
+import getLibraryName from './get-library-name';
 
 export default ({ cwd = '.' }: { cwd?: string } = {}) => {
-  const libraryName = getLibraryName({ cwd })
-
+  const libraryName = getLibraryName({ cwd });
   return endent`
     import type { App } from 'vue';
 
@@ -28,5 +27,5 @@ export default ({ cwd = '.' }: { cwd?: string } = {}) => {
     export default library;
 
     export * from './src';
-  `
-}
+  `;
+};

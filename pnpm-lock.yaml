@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@dword-design/base':
+        specifier: ^16.1.2
+        version: 16.1.2(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-core@3.5.25)(esbuild@0.27.1)
       '@dword-design/base-config-component':
         specifier: ^7.0.0
         version: 7.0.0(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(jiti@2.6.1)(rollup@4.53.3)(terser@5.44.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
@@ -17,6 +20,12 @@ importers:
       change-case:
         specifier: ^5.4.4
         version: 5.4.4
+      depcheck-package-name:
+        specifier: ^4.0.1
+        version: 4.0.1
+      endent:
+        specifier: npm:@dword-design/endent@^1.4.7
+        version: '@dword-design/endent@1.4.7'
       fs-extra:
         specifier: ^11.0.0
         version: 11.3.2
@@ -26,13 +35,13 @@ importers:
       parse-packagejson-name:
         specifier: ^1.0.1
         version: 1.1.0
+      read-pkg:
+        specifier: ^10.0.0
+        version: 10.0.0
       vite:
         specifier: ^7.2.6
         version: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
     devDependencies:
-      '@dword-design/base':
-        specifier: ^16.1.2
-        version: 16.1.2(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-core@3.5.25)(esbuild@0.27.1)
       '@playwright/browser-chromium':
         specifier: ^1.57.0
         version: 1.57.0

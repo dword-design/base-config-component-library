@@ -1,9 +1,10 @@
-import getComponentConfig from '@dword-design/base-config-component'
-import fs from 'fs-extra'
-import pathLib from 'path'
-import { defineBaseConfig, type Base, type Config } from '@dword-design/base';
+import pathLib from 'node:path';
 
-import getEntry from './get-entry'
+import { type Base, type Config, defineBaseConfig } from '@dword-design/base';
+import getComponentConfig from '@dword-design/base-config-component';
+import fs from 'fs-extra';
+
+import getEntry from './get-entry';
 
 export default defineBaseConfig(function (this: Base, config: Config) {
   const componentConfig = getComponentConfig.call(this, config);
@@ -11,7 +12,11 @@ export default defineBaseConfig(function (this: Base, config: Config) {
     ...componentConfig,
     prepare: async () => {
       await componentConfig.prepare();
-      await fs.outputFile(pathLib.join(this.cwd, 'entry.ts'), getEntry({ cwd: this.cwd }));
-    }
+
+      await fs.outputFile(
+        pathLib.join(this.cwd, 'entry.ts'),
+        getEntry({ cwd: this.cwd }),
+      );
+    },
   };
 });

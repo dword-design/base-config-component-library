@@ -1,3 +1,4 @@
-import { readPackageSync } from 'read-pkg'
+import { readPackageSync } from 'read-pkg';
 
-export default ({ cwd = '.' }: { cwd?: string } = {}) => readPackageSync({ cwd }).name
+export default ({ cwd = '.' }: { cwd?: string } = {}) =>
+  readPackageSync({ cwd }).name;

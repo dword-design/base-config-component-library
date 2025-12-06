@@ -1,20 +1,20 @@
-import { Base } from '@dword-design/base'
-import endent from 'endent';
-import { execaCommand } from 'execa'
-import fileUrl from 'file-url'
-import fs from 'fs-extra'
-import nuxtDevReady from 'nuxt-dev-ready'
-import outputFiles from 'output-files'
-import kill from 'tree-kill-promise'
-import { test, expect } from '@playwright/test';
-import pathLib, { resolve } from 'node:path';
-import getPort from 'get-port';
+import pathLib from 'node:path';
 
-import self from '.'
-import { vueCdnScript } from './variables'
+import { Base } from '@dword-design/base';
+import { expect, test } from '@playwright/test';
+import endent from 'endent';
+import { execaCommand } from 'execa';
+import fileUrl from 'file-url';
+import getPort from 'get-port';
+import nuxtDevReady from 'nuxt-dev-ready';
+import outputFiles from 'output-files';
+import kill from 'tree-kill-promise';
+
+import { vueCdnScript } from './variables';
 
 test('components', async ({ page }, testInfo) => {
   const cwd = testInfo.outputPath();
+
   await outputFiles(cwd, {
     'app/pages/index.vue': endent`
       <template>
@@ -46,9 +46,9 @@ test('components', async ({ page }, testInfo) => {
 
           export { default as Component2 } from './component2.vue'
         `,
-      }
-    }
-  })
+      },
+    },
+  });
 
   const base = new Base(
     { name: '../../../../src' },
@@ -59,21 +59,28 @@ test('components', async ({ page }, testInfo) => {
   await base.run('prepublishOnly');
   const port = await getPort();
 
-  const nuxt = execaCommand('nuxt dev', { env: { PORT: String(port) }, reject: false, cwd });
+  const nuxt = execaCommand('nuxt dev', {
+    cwd,
+    env: { PORT: String(port) },
+    reject: false,
+  });
+
   try {
-    await nuxtDevReady(port)
-    await page.goto(`http://localhost:${port}`)
+    await nuxtDevReady(port);
+    await page.goto(`http://localhost:${port}`);
+
     await Promise.all([
       expect(page.locator('.tmp-component-library .foo')).toBeAttached(),
       expect(page.locator('.tmp-component-library .bar')).toBeAttached(),
-    ])
+    ]);
   } finally {
-    await kill(nuxt.pid!)
+    await kill(nuxt.pid!);
   }
 });
 
 test('plugin', async ({ page }, testInfo) => {
   const cwd = testInfo.outputPath();
+
   await outputFiles(cwd, {
     app: {
       'pages/index.vue': endent`
@@ -108,9 +115,9 @@ test('plugin', async ({ page }, testInfo) => {
 
           export { default as Component2 } from './component2.vue'
         `,
-      }
-    }
-  })
+      },
+    },
+  });
 
   const base = new Base(
     { name: '../../../../src' },
@@ -120,23 +127,29 @@ test('plugin', async ({ page }, testInfo) => {
   await base.prepare();
   await base.run('prepublishOnly');
   const port = await getPort();
-  const nuxt = execaCommand('nuxt dev', { env: { PORT: String(port) }, reject: false, cwd });
+
+  const nuxt = execaCommand('nuxt dev', {
+    cwd,
+    env: { PORT: String(port) },
+    reject: false,
+  });
 
   try {
-    await nuxtDevReady(port)
-    await page.goto(`http://localhost:${port}`)
+    await nuxtDevReady(port);
+    await page.goto(`http://localhost:${port}`);
 
     await Promise.all([
       expect(page.locator('.tmp-component-library .foo')).toBeAttached(),
       expect(page.locator('.tmp-component-library .bar')).toBeAttached(),
-    ])
+    ]);
   } finally {
-    await kill(nuxt.pid!)
+    await kill(nuxt.pid!);
   }
 });
 
 test('script', async ({ page }, testInfo) => {
   const cwd = testInfo.outputPath();
+
   await outputFiles(cwd, {
     'index.html': endent`
       <body>
@@ -178,9 +191,9 @@ test('script', async ({ page }, testInfo) => {
 
           export { default as Component2 } from './component2.vue'
         `,
-      }
+      },
     },
-  })
+  });
 
   const base = new Base(
     { name: '../../../../src' },
@@ -189,11 +202,10 @@ test('script', async ({ page }, testInfo) => {
 
   await base.prepare();
   await base.run('prepublishOnly');
-
-  await page.goto(fileUrl(pathLib.join(cwd, 'index.html')))
+  await page.goto(fileUrl(pathLib.join(cwd, 'index.html')));
 
   await Promise.all([
     expect(page.locator('.tmp-component-library .foo')).toBeAttached(),
     expect(page.locator('.tmp-component-library .bar')).toBeAttached(),
-  ])
+  ]);
 });
