@@ -12,35 +12,23 @@ importers:
         specifier: ^16.1.2
         version: 16.1.2(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-core@3.5.25)(esbuild@0.27.1)
       '@dword-design/base-config-component':
-        specifier: ^7.0.0
-        version: 7.0.0(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(jiti@2.6.1)(rollup@4.53.3)(terser@5.44.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
-      '@vitejs/plugin-vue':
-        specifier: ^6.0.2
-        version: 6.0.2(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
+        specifier: ^7.0.1
+        version: 7.0.1(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(jiti@2.6.1)(rollup@4.53.3)(terser@5.44.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       change-case:
         specifier: ^5.4.4
         version: 5.4.4
-      depcheck-package-name:
-        specifier: ^4.0.1
-        version: 4.0.1
       endent:
         specifier: npm:@dword-design/endent@^1.4.7
         version: '@dword-design/endent@1.4.7'
       fs-extra:
         specifier: ^11.0.0
         version: 11.3.2
-      load-pkg:
-        specifier: ^4.0.0
-        version: 4.0.0
       parse-packagejson-name:
         specifier: ^1.0.1
         version: 1.1.0
       read-pkg:
         specifier: ^10.0.0
         version: 10.0.0
-      vite:
-        specifier: ^7.2.6
-        version: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
     devDependencies:
       '@playwright/browser-chromium':
         specifier: ^1.57.0
@@ -326,8 +314,8 @@ packages:
     resolution: {integrity: sha512-KTy0OqRDLR5y/zZMnizyx09z/rPlPC/zKhYgH8o/q6PuAjoQAKlRfY4zzv0M64yybQ//6//4H1n14pxaLZfUnA==}
     engines: {node: '>=v18'}
 
-  '@dword-design/base-config-component@7.0.0':
-    resolution: {integrity: sha512-ZUfuAM4gJuSJzkfF1d867U5U7zMGvT2DgRVqUXTCeDO2xkgVX5QSxJl+4pPHcuRNYnBhvm7gj34LdJUM97G1Ng==}
+  '@dword-design/base-config-component@7.0.1':
+    resolution: {integrity: sha512-+lrYLpQD0Frp0MzsXW3FvrLqMlIVSeovUH63VVRDyxtajOFx8WkMi0OP7+XzZCCkTg2z6l44MnVWfs4MLRRF3Q==}
     engines: {node: '>=22'}
 
   '@dword-design/base-config-node@5.0.2':
@@ -6839,7 +6827,7 @@ snapshots:
       chalk: 5.6.2
     optional: true
 
-  '@dword-design/base-config-component@7.0.0(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(jiti@2.6.1)(rollup@4.53.3)(terser@5.44.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)':
+  '@dword-design/base-config-component@7.0.1(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(jiti@2.6.1)(rollup@4.53.3)(terser@5.44.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)':
     dependencies:
       '@dword-design/base': 16.1.2(@types/node@24.10.1)(@typescript-eslint/parser@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-core@3.5.25)(esbuild@0.27.1)
       '@dword-design/depcheck-parser-sass': 5.0.0

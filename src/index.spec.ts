@@ -10,8 +10,6 @@ import nuxtDevReady from 'nuxt-dev-ready';
 import outputFiles from 'output-files';
 import kill from 'tree-kill-promise';
 
-import { vueCdnScript } from './variables';
-
 test('components', async ({ page }, testInfo) => {
   const cwd = testInfo.outputPath();
 
@@ -153,7 +151,7 @@ test('script', async ({ page }, testInfo) => {
   await outputFiles(cwd, {
     'index.html': endent`
       <body>
-        ${vueCdnScript}
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="./node_modules/tmp-component-library/dist/index.min.js"></script>
 
         <div id="app"></div>
