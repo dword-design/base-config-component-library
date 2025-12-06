@@ -59,7 +59,7 @@ test('components', async ({ page }, testInfo) => {
   await base.run('prepublishOnly');
   const port = await getPort();
 
-  const nuxt = execaCommand('nuxt dev', { env: { PORT: String(port), NODE_ENV: '' }, reject: false, cwd, stdio: 'inherit' });
+  const nuxt = execaCommand('nuxt dev', { env: { PORT: String(port) }, reject: false, cwd });
   try {
     await nuxtDevReady(port)
     await page.goto(`http://localhost:${port}`)
@@ -72,83 +72,128 @@ test('components', async ({ page }, testInfo) => {
   }
 });
 
-/*export default tester(
-  {
-    plugin: async () => {
-      await outputFiles({
-        'pages/index.vue': endent`
+test('plugin', async ({ page }, testInfo) => {
+  const cwd = testInfo.outputPath();
+  await outputFiles(cwd, {
+    app: {
+      'pages/index.vue': endent`
+        <template>
+          <div class="tmp-component-library">
+            <component1 />
+            <component2 />
+          </div>
+        </template>
+      `,
+      'plugins/plugin.js': endent`
+        import TmpComponentLibrary from 'tmp-component-library';
+
+        export default defineNuxtPlugin(nuxtApp => nuxtApp.vueApp.use(TmpComponentLibrary));
+      `,
+    },
+    'node_modules/tmp-component-library': {
+      'package.json': JSON.stringify({ name: 'tmp-component-library' }),
+      src: {
+        'component1.vue': endent`
           <template>
-            <div class="tmp-component-library">
-              <component1 />
-              <component2 />
-            </div>
+            <div class="foo" />
           </template>
         `,
-        'plugins/plugin.js': endent`
-          import TmpComponentLibrary from '../../tmp-component-library'
-
-          export default defineNuxtPlugin(nuxtApp => nuxtApp.vueApp.use(TmpComponentLibrary))
+        'component2.vue': endent`
+          <template>
+            <div class="bar" />
+          </template>
         `,
-      })
+        'index.ts': endent`
+          export { default as Component1 } from './component1.vue'
 
-      const nuxt = execaCommand('nuxt dev')
+          export { default as Component2 } from './component2.vue'
+        `,
+      }
+    }
+  })
 
-      const browser = await puppeteer.launch()
+  const base = new Base(
+    { name: '../../../../src' },
+    { cwd: pathLib.join(cwd, 'node_modules', 'tmp-component-library') },
+  );
 
-      const page = await browser.newPage()
-      try {
-        await nuxtDevReady()
-        await page.goto('http://localhost:3000')
+  await base.prepare();
+  await base.run('prepublishOnly');
+  const port = await getPort();
+  const nuxt = execaCommand('nuxt dev', { env: { PORT: String(port) }, reject: false, cwd });
 
-        const component = await page.waitForSelector('.tmp-component-library')
-        expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others',
-        )
-      } finally {
-        await browser.close()
-        await kill(nuxt.pid)
+  try {
+    await nuxtDevReady(port)
+    await page.goto(`http://localhost:${port}`)
+
+    await Promise.all([
+      expect(page.locator('.tmp-component-library .foo')).toBeAttached(),
+      expect(page.locator('.tmp-component-library .bar')).toBeAttached(),
+    ])
+  } finally {
+    await kill(nuxt.pid!)
+  }
+});
+
+test('script', async ({ page }, testInfo) => {
+  const cwd = testInfo.outputPath();
+  await outputFiles(cwd, {
+    'index.html': endent`
+      <body>
+        ${vueCdnScript}
+        <script src="./node_modules/tmp-component-library/dist/index.min.js"></script>
+
+        <div id="app"></div>
+
+        <script>
+          const app = Vue.createApp({
+            el: '#app',
+            template: \`
+              <div class="tmp-component-library">
+                <component1 />
+                <component2 />
+              </div>
+            \`
+          })
+          app.use(TmpComponentLibrary)
+          app.mount('#app')
+        </script>
+      </body>
+    `,
+    'node_modules/tmp-component-library': {
+      'package.json': JSON.stringify({ name: 'tmp-component-library' }),
+      src: {
+        'component1.vue': endent`
+          <template>
+            <div class="foo" />
+          </template>
+        `,
+        'component2.vue': endent`
+          <template>
+            <div class="bar" />
+          </template>
+        `,
+        'index.ts': endent`
+          export { default as Component1 } from './component1.vue'
+
+          export { default as Component2 } from './component2.vue'
+        `,
       }
     },
-    script: async () => {
-      await fs.outputFile(
-        'index.html',
-        endent`
-          <body>
-            ${vueCdnScript}
-            <script src="../tmp-component-library/dist/index.min.js"></script>
+  })
 
-            <div id="app"></div>
+  const base = new Base(
+    { name: '../../../../src' },
+    { cwd: pathLib.join(cwd, 'node_modules', 'tmp-component-library') },
+  );
 
-            <script>
-              const app = Vue.createApp({
-                el: '#app',
-                template: \`
-                  <div class="tmp-component-library">
-                    <component1 />
-                    <component2 />
-                  </div>
-                \`
-              })
-              app.use(TmpComponentLibrary)
-              app.mount('#app')
-            </script>
-          </body>
-        `,
-      )
+  await base.prepare();
+  await base.run('prepublishOnly');
 
-      const browser = await puppeteer.launch()
+  await page.goto(fileUrl(pathLib.join(cwd, 'index.html')))
 
-      const page = await browser.newPage()
-      try {
-        await page.goto(fileUrl('index.html'))
-
-        const component = await page.waitForSelector('.tmp-component-library')
-        expect(await component.evaluate(el => el.innerText)).toEqual(
-          'Hello world\nHello others',
-        )
-      } finally {
-        await browser.close()
-      }
-    },
-  },
-)*/
+  await Promise.all([
+    expect(page.locator('.tmp-component-library .foo')).toBeAttached(),
+    expect(page.locator('.tmp-component-library .bar')).toBeAttached(),
+  ])
+});
