@@ -1,3 +1,18 @@
+# [4.0.0](https://github.com/dword-design/base-config-component-library/compare/v3.0.0...v4.0.0) (2025-12-06)
+
+
+### Bug Fixes
+
+* approve builds ([f255fc1](https://github.com/dword-design/base-config-component-library/commit/f255fc1e91afdf3564aa082c2058a4d8cf099410))
+* lock file maintenance ([#166](https://github.com/dword-design/base-config-component-library/issues/166)) ([3d36140](https://github.com/dword-design/base-config-component-library/commit/3d36140785c117b0de03f7d5b3f60be451ed0c3c))
+* playwright config ([0eaa585](https://github.com/dword-design/base-config-component-library/commit/0eaa58506635b1eaf1cdb4fa9410ac5995732c90))
+* set test timeout ([13ccfd3](https://github.com/dword-design/base-config-component-library/commit/13ccfd3ac5968cd51b2ba4c94d85672ec3bdc75e))
+
+
+### BREAKING CHANGES
+
+* node.js >= 22
+
 # [3.0.0](https://github.com/dword-design/base-config-component-library/compare/v2.0.6...v3.0.0) (2024-02-13)
 
 
